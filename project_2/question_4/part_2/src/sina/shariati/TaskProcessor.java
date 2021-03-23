@@ -1,12 +1,25 @@
 package sina.shariati;
 
+/**
+ * Command line task processor for given linkedList
+ */
 public class TaskProcessor {
     private IntegerLinkedList linkedList;
 
+    /**
+     * Instantiates a new Task processor and set the linkedList property from given input
+     *
+     * @param linkedList the linked list
+     */
     public TaskProcessor(IntegerLinkedList linkedList) {
         this.linkedList = linkedList;
     }
 
+    /**
+     * Read the next task from system.in and execute it
+     *
+     * @param taskString the task string
+     */
     public void processNextTask(String taskString) {
         String taskArray[] = this.splitTaskString(taskString);
         String taskFunction = taskArray[0];
@@ -23,8 +36,8 @@ public class TaskProcessor {
         );
     }
 
-    private void executeTask(String function, int input) {
 
+    private void executeTask(String function, int input) {
         if (function.equals("add")) {
             this.linkedList.addToEnd(input);
         } else if (function.equals("addFirst")) {
