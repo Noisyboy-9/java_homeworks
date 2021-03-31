@@ -1,4 +1,4 @@
-package com.bank.Utils;
+package com.bank.entities;
 
 import java.util.*;
 
@@ -9,13 +9,13 @@ public class Account {
     private final String[] allowedTypes = new String[]{"saving", "checking"};
     private final UUID serial;
     private final ArrayList<Transaction> transactions;
-    private String type;
     private final String nationalId;
+    private String type;
     private String name;
     private double balance;
 
     /**
-     * Instantiates a new Account with firstname and lastname seperated.
+     * Instantiates a new Account with firstname and lastname separated.
      *
      * @param type       account type which can be saving or checking
      * @param nationalId the user nationalId
@@ -46,6 +46,15 @@ public class Account {
 
         this.transactions = new ArrayList<Transaction>();
         this.serial = UUID.randomUUID();
+    }
+
+    /**
+     * Gets account serial or uuid.
+     *
+     * @return the serial
+     */
+    public String getSerial() {
+        return serial.toString();
     }
 
     /**
@@ -89,6 +98,9 @@ public class Account {
         if (amount == 0) {
             throw new Exception("Can not update account balance with amount zero");
         }
+        if (amount < 0 && Math.abs(amount) > this.balance) {
+            throw new Exception("Amount can not be negative!");
+        }
 
         Transaction transaction = new Transaction(amount);
         this.transactions.add(transaction);
@@ -129,4 +141,7 @@ public class Account {
         System.out.println("----------------------------");
     }
 
+    public double getBalance() {
+        return balance;
+    }
 }
