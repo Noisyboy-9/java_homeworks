@@ -29,6 +29,7 @@ public class BankingSystem {
      * @param nationalId the national id
      * @param password   the password
      * @return the user
+     * @throws Exception the exception
      */
     public User register(String firstName, String lastName, String nationalId, String password) throws Exception {
         User user = new User(firstName, lastName, nationalId, password, this);
@@ -50,6 +51,7 @@ public class BankingSystem {
      * @param nationalId the national id
      * @param password   the password
      * @return the user
+     * @throws Exception the exception
      */
     public User register(String name, String nationalId, String password) throws Exception {
         User user = new User(name, nationalId, password, this);
@@ -69,6 +71,7 @@ public class BankingSystem {
      * Add user to the bank list
      *
      * @param user the user
+     * @throws Exception the exception
      */
     public void addUser(User user) throws Exception {
         if (this.users.contains(user)) {
@@ -83,6 +86,7 @@ public class BankingSystem {
      *
      * @param nationalId the nationalId
      * @param password   the password
+     * @return the user
      * @throws Exception the exception
      */
     public User login(String nationalId, String password) throws Exception {
@@ -113,6 +117,12 @@ public class BankingSystem {
         this.users.remove(user);
     }
 
+    /**
+     * Remove user.
+     *
+     * @param nationalId the national id
+     * @throws Exception the exception
+     */
     public void removeUser(String nationalId) throws Exception {
         for (User user : this.users) {
             if (user.getNationalId().equals(nationalId)) {
@@ -186,6 +196,12 @@ public class BankingSystem {
         throw new Exception("No account with given serial found");
     }
 
+    /**
+     * Check if the specified account is listed in the bank.
+     *
+     * @param account the account
+     * @return the boolean
+     */
     public boolean hasAccount(Account account) {
         return this.accounts.contains(account);
     }

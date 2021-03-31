@@ -4,6 +4,7 @@ package com.bank.entities;
 import com.bank.BankingSystem;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  * The User that can have many accounts
@@ -19,10 +20,10 @@ public class User {
      * Instantiates a new User with firstname and lastname given as separate strings.
      *
      * @param firstName  the first name
-     * @param bank       the bank
      * @param lastName   the last name
      * @param nationalId the national id
      * @param password   the password
+     * @param bank       the bank
      */
     public User(String firstName, String lastName, String nationalId, String password, BankingSystem bank) {
         this(firstName + " " + lastName, nationalId, password, bank);
@@ -33,9 +34,9 @@ public class User {
      * Instantiates a new User with name given as a string.
      *
      * @param name       the name
-     * @param bank       the bank
      * @param nationalId the national id
      * @param password   the password
+     * @param bank       the bank
      */
     public User(String name, String nationalId, String password, BankingSystem bank) {
         this.name = name;
@@ -172,6 +173,8 @@ public class User {
 
     /**
      * Print all accounts of the user.
+     *
+     * @throws Exception the exception
      */
     public void printAllAccounts() throws Exception {
         if (this.accounts.size() == 0) {
@@ -195,5 +198,17 @@ public class User {
         System.out.println("---------------------------");
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return nationalId.equals(user.nationalId);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nationalId);
+    }
 }
 
