@@ -45,10 +45,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Sing In");
 
-        System.out.println("Please input user national id: ");
+        System.out.print("Please input user national id: ");
         String nationalId = scanner.nextLine();
 
-        System.out.println("Please input user password: ");
+        System.out.print("Please input user password: ");
         String password = scanner.nextLine();
 
         User user;
@@ -77,11 +77,11 @@ public class Main {
                 case 2:
                     System.out.println("Add New Account");
 
-                    System.out.println("please enter account type[savings/checking]: ");
+                    System.out.print("please enter account type[saving/checking]: ");
                     String type = scanner.nextLine().toLowerCase(Locale.ROOT);
 
 
-                    System.out.println("please input account initial balance: ");
+                    System.out.print("please input account initial balance: ");
                     double initialBalance = scanner.nextInt();
 
                     try {
@@ -170,7 +170,7 @@ public class Main {
     private static Account getUserAccountChoose() throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("please enter account uuid: ");
+        System.out.print("please enter account uuid: ");
         String serial = scanner.nextLine();
 
         return bank.findAccount(serial);

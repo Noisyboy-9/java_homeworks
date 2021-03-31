@@ -31,7 +31,7 @@ public class BankingSystem {
      * @return the user
      */
     public User register(String firstName, String lastName, String nationalId, String password) throws Exception {
-        User user = new User(firstName, lastName, nationalId, password);
+        User user = new User(firstName, lastName, nationalId, password, this);
 
         for (User iterationUser : this.users) {
             if (iterationUser.getNationalId().equals(user.getNationalId())) {
@@ -52,7 +52,7 @@ public class BankingSystem {
      * @return the user
      */
     public User register(String name, String nationalId, String password) throws Exception {
-        User user = new User(name, nationalId, password);
+        User user = new User(name, nationalId, password, this);
 
         for (User iterationUser : this.users) {
             if (iterationUser.getNationalId().equals(user.getNationalId())) {
@@ -186,4 +186,7 @@ public class BankingSystem {
         throw new Exception("No account with given serial found");
     }
 
+    public boolean hasAccount(Account account) {
+        return this.accounts.contains(account);
+    }
 }

@@ -1,12 +1,15 @@
 package com.bank.entities;
 
 
+import com.bank.BankingSystem;
+
 import java.util.ArrayList;
 
 /**
  * The User that can have many accounts
  */
 public class User {
+    private BankingSystem bank;
     private String name;
     private String nationalId;
     private String password;
@@ -16,12 +19,13 @@ public class User {
      * Instantiates a new User with firstname and lastname given as separate strings.
      *
      * @param firstName  the first name
+     * @param bank       the bank
      * @param lastName   the last name
      * @param nationalId the national id
      * @param password   the password
      */
-    public User(String firstName, String lastName, String nationalId, String password) {
-        this(firstName + " " + lastName, nationalId, password);
+    public User(String firstName, String lastName, String nationalId, String password, BankingSystem bank) {
+        this(firstName + " " + lastName, nationalId, password, bank);
 
     }
 
@@ -29,13 +33,15 @@ public class User {
      * Instantiates a new User with name given as a string.
      *
      * @param name       the name
+     * @param bank       the bank
      * @param nationalId the national id
      * @param password   the password
      */
-    public User(String name, String nationalId, String password) {
+    public User(String name, String nationalId, String password, BankingSystem bank) {
         this.name = name;
         this.nationalId = nationalId;
         this.password = password;
+        this.bank = bank;
 
         this.accounts = new ArrayList<Account>();
     }
@@ -136,6 +142,10 @@ public class User {
     public void transfer(Account sourceAccount, Account destinationAccount, int amount) throws Exception {
         if (!this.accounts.contains(sourceAccount)) {
             throw new Exception("source account does not belong to user");
+        }
+
+        if (!this.bank.hasAccount(sourceAccount) || !this.bank.hasAccount(destinationAccount)) {
+            throw new Exception("Source account or destination account does not exist");
         }
 
         if (amount > sourceAccount.getBalance()) {

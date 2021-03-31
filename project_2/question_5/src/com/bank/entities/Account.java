@@ -83,6 +83,9 @@ public class Account {
 
     /**
      * Set user name with firstname and lastname as separate strings.
+     *
+     * @param firstName the first name
+     * @param lastName  the last name
      */
     public void setName(String firstName, String lastName) {
         this.name = firstName + " " + lastName;
@@ -141,7 +144,26 @@ public class Account {
         System.out.println("----------------------------");
     }
 
+    /**
+     * Get account balance.
+     *
+     * @return the balance
+     */
     public double getBalance() {
         return balance;
+    }
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Account account = (Account) o;
+        return serial.equals(account.serial);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(serial);
     }
 }
