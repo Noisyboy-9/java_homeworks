@@ -134,7 +134,6 @@ public class Account {
      * Print account data.
      */
     public void printData() {
-        System.out.println("----------------------------");
         System.out.println("Account Data: ");
         System.out.println("uuid : " + this.serial.toString());
         System.out.println("balance : " + this.balance);

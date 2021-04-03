@@ -182,18 +182,12 @@ public class BankingSystem {
     /**
      * Find account account if it exists the account will be returned, if it doesn't an exception will be thrown.
      *
-     * @param serial the serial
+     * @param index the index of the element in the list
      * @return the account
      * @throws Exception the exception for when cannot find account in the accounts list
      */
-    public Account findAccount(String serial) throws Exception {
-        for (Account account : this.accounts) {
-            if (account.getSerial().equals(serial)) {
-                return account;
-            }
-        }
-
-        throw new Exception("No account with given serial found");
+    public Account findAccount(int index) throws Exception {
+        return this.accounts.get(index);
     }
 
     /**

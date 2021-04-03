@@ -4,6 +4,7 @@ package com.bank;
 import com.bank.entities.Account;
 import com.bank.entities.User;
 
+import java.math.BigInteger;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -78,7 +79,8 @@ public class Main {
                     System.out.println("Add New Account");
 
                     System.out.print("please enter account type[saving/checking]: ");
-                    String type = scanner.nextLine().toLowerCase(Locale.ROOT);
+                    Scanner scanner1 = new Scanner(System.in);
+                    String type = scanner1.nextLine().toLowerCase(Locale.ROOT);
 
 
                     System.out.print("please input account initial balance: ");
@@ -170,10 +172,11 @@ public class Main {
     private static Account getUserAccountChoose() throws Exception {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("please enter account uuid: ");
-        String serial = scanner.nextLine();
+        System.out.print("Please enter account number(stated at the top): ");
+        String number = scanner.nextLine();
+        int index = Integer.parseInt(number) - 1;
 
-        return bank.findAccount(serial);
+        return bank.findAccount(index);
     }
 
     private static void showUserPanel() {

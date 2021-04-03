@@ -181,8 +181,11 @@ public class User {
             throw new Exception("No account has been added");
         }
 
+        int counter = 1;
         for (Account account : this.accounts) {
+            System.out.println(counter + ")");
             account.printData();
+            counter++;
         }
     }
 
@@ -190,7 +193,6 @@ public class User {
      * Print user data.
      */
     public void printUserData() {
-        System.out.println("---------------------------");
         System.out.println("User Data:");
         System.out.println("Name : " + this.name);
         System.out.println("NationalId : " + this.nationalId);
