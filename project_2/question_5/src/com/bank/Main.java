@@ -4,7 +4,6 @@ package com.bank;
 import com.bank.entities.Account;
 import com.bank.entities.User;
 
-import java.math.BigInteger;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -90,6 +89,7 @@ public class Main {
                         account = new Account(type, user.getNationalId(), user.getName(), initialBalance);
                         user.addAccount(account);
                         bank.addAccount(account);
+
                         System.out.println("Account added successfully!");
                     } catch (Exception exception) {
                         System.out.println(exception.getMessage());

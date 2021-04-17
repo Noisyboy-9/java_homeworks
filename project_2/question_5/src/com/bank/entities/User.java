@@ -81,8 +81,6 @@ public class User {
      */
     public void addAccount(Account account) {
         this.accounts.add(account);
-
-//        TODO: update banking system with newly created account
     }
 
 
@@ -93,8 +91,6 @@ public class User {
      */
     public void removeAccount(Account account) {
         this.accounts.remove(account);
-
-//        TODO: update banking system with recently deleted account
     }
 
     /**
