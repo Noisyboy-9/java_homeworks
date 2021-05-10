@@ -12,4 +12,14 @@ public class News {
         this.content = content;
         this.type = type;
     }
+
+    public NewsTypeEnum getType() {
+        return this.type;
+    }
+
+    @Override
+    public String toString() {
+        return "Title: " + this.title + "\n" +
+                "content: " + this.content;
+    }
 }

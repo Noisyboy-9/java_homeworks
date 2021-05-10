@@ -19,11 +19,20 @@ public class Player {
      * @param nationalId the national id
      * @param age        the age
      */
-    public Player(String firstName, String lastName, String nationalId, int age) {
+    public Player(String firstName, String lastName, UUID nationalId, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.nationalId = UUID.fromString(nationalId);
+        this.nationalId = nationalId;
         this.age = age;
+    }
+
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
+    public String getName() {
+        return this.getFirstName() + " " + this.getLastName();
     }
 
     /**

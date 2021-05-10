@@ -1,7 +1,10 @@
 package sina.shariati.club;
 
 import sina.shariati.enums.NewsTypeEnum;
+import sina.shariati.exceptions.DuplicateNewsLetterSubscriptionTypeException;
+import sina.shariati.exceptions.InvalidFanException;
 import sina.shariati.matchs.Match;
+import sina.shariati.news.Fan;
 import sina.shariati.news.News;
 import sina.shariati.news.NewsLetter;
 
@@ -19,12 +22,12 @@ public class Club {
     /**
      * Instantiates a new Club with just the club name.
      *
-     * @param name       the name
-     * @param newsLetter the news letter
+     * @param name the name
      */
-    public Club(String name, NewsLetter newsLetter) {
+    public Club(String name) {
         this.name = name;
-        this.newsLetter = newsLetter;
+
+        this.newsLetter = new NewsLetter();
         this.players = new ArrayList<>();
         this.matches = new ArrayList<>();
     }
@@ -32,16 +35,16 @@ public class Club {
     /**
      * Instantiates a new Club with a predefined list of matches and players.
      *
-     * @param name       the name
-     * @param newsLetter the news letter
-     * @param players    the players
-     * @param matches    the matches
+     * @param name    the name
+     * @param players the players
+     * @param matches the matches
      */
-    public Club(String name, NewsLetter newsLetter, ArrayList<Player> players, ArrayList<Match> matches) {
+    public Club(String name, ArrayList<Player> players, ArrayList<Match> matches) {
         this.name = name;
         this.players = players;
         this.matches = matches;
-        this.newsLetter = newsLetter;
+
+        this.newsLetter = new NewsLetter();
     }
 
     /**
@@ -69,9 +72,8 @@ public class Club {
      */
     public void addPlayer(Player player) {
         this.players.add(player);
-
-        String newsTitle = player.getName() + "Has joined " + this.name;
-        String newsContent = player.getName() + "joined the team today. He is " + player.getAge() + "years old.";
+        String newsTitle = player.getName() + " Has joined " + this.name;
+        String newsContent = player.getName() + " joined the team today. He is " + player.getAge() + " years old.";
         News news = this.createNews(newsTitle, newsContent, NewsTypeEnum.PLAYERS_NEWS);
 
         this.newsLetter.dispatch(news);
@@ -85,7 +87,7 @@ public class Club {
     public void removePlayer(Player player) {
         this.players.remove(player);
 
-        String newsTitle = player.getName() + "Has us!";
+        String newsTitle = player.getName() + "Has left " + this.name;
         String newsContent = player.getName() + "left the team today.";
         News news = this.createNews(newsTitle, newsContent, NewsTypeEnum.PLAYERS_NEWS);
 
@@ -133,6 +135,14 @@ public class Club {
         News news = this.createNews(newsTitle, newsContent, NewsTypeEnum.MATCH_NEWS);
 
         this.newsLetter.dispatch(news);
+    }
+
+    public void addFan(Fan fan) {
+        this.newsLetter.addFan(fan);
+    }
+
+    public void subscribeToNewsLetter(Fan fan, NewsTypeEnum type) throws DuplicateNewsLetterSubscriptionTypeException, InvalidFanException {
+        this.newsLetter.subscribeToNewsLetter(fan, type);
     }
 }
 
