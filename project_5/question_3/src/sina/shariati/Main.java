@@ -11,7 +11,6 @@ import sina.shariati.news.Fan;
 
 import java.util.Date;
 import java.util.UUID;
-import java.util.regex.Matcher;
 
 public class Main {
     public static void main(String[] args) {

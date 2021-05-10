@@ -137,10 +137,23 @@ public class Club {
         this.newsLetter.dispatch(news);
     }
 
+    /**
+     * Add fan.
+     *
+     * @param fan the fan
+     */
     public void addFan(Fan fan) {
         this.newsLetter.addFan(fan);
     }
 
+    /**
+     * Subscribe to news letter.
+     *
+     * @param fan  the fan
+     * @param type the type
+     * @throws DuplicateNewsLetterSubscriptionTypeException the duplicate news letter subscription type exception
+     * @throws InvalidFanException                          the invalid fan exception
+     */
     public void subscribeToNewsLetter(Fan fan, NewsTypeEnum type) throws DuplicateNewsLetterSubscriptionTypeException, InvalidFanException {
         this.newsLetter.subscribeToNewsLetter(fan, type);
     }

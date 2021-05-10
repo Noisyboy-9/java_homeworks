@@ -4,11 +4,20 @@ import sina.shariati.observer.ObserverInterface;
 
 import java.util.ArrayList;
 
+/**
+ * The type Fan.
+ */
 public class Fan implements ObserverInterface {
     private String firstName;
     private String lastName;
     private ArrayList<News> receivedNews;
 
+    /**
+     * Instantiates a new Fan.
+     *
+     * @param firstName the first name
+     * @param lastName  the last name
+     */
     public Fan(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
