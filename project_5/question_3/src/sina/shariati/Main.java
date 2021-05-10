@@ -91,5 +91,9 @@ public class Main {
 
         miami.removePlayer(player4);
         miami.removePlayer(player5);
+
+//        creating club related news
+        lakers.createClubNews("celebration of life", "R.I.P Kobe!");
+        bulls.createClubNews("manager changed!", "The club manager has been changed");
     }
 }

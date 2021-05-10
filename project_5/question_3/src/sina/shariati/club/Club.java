@@ -118,6 +118,17 @@ public class Club {
         this.newsLetter.dispatch(news);
     }
 
+    /**
+     * Create club news.
+     *
+     * @param title   the title
+     * @param content the content
+     */
+    public void createClubNews(String title, String content) {
+        News news = this.createNews(title, content, NewsTypeEnum.CLUB_NEWS);
+        this.newsLetter.dispatch(news);
+    }
+
     private News createNews(String title, String content, NewsTypeEnum type) {
         return new News(title, content, type);
     }
