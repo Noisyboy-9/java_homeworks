@@ -72,6 +72,7 @@ public class Club {
      */
     public void addPlayer(Player player) {
         this.players.add(player);
+
         String newsTitle = player.getName() + " Has joined " + this.name;
         String newsContent = player.getName() + " joined the team today. He is " + player.getAge() + " years old.";
         News news = this.createNews(newsTitle, newsContent, NewsTypeEnum.PLAYERS_NEWS);

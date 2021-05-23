@@ -107,7 +107,6 @@ public class NewsLetter implements ObserveTargetInterface {
             }
 
             subscribedFan.update(news);
-
         }
     }
 
