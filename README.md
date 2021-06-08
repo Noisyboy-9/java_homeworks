@@ -17,7 +17,7 @@ This course taught
 
 - GUI(JavaFX) <br>
   ### teacher
-  The course it was taught by
+  The course was taught by
   [Prof. Kalbasi](https://aut.ac.ir/cv/2241/Amir%20Kalbasi). <br>
   
   ### repository structure
