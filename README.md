@@ -22,8 +22,8 @@ This course taught
   
   ### repository structure
   In total, we had 5 homeworks that in average each had 5 questions to solve. Some questions demanded to write code, and
-  some demanded to write the answers in a pdf document and upload it. <br>
-  This course was taken under COVID-19 circumstances.
+  some demanded to write the answers in a pdf document. <br>
+  This repo contains all of the projects with answers I have come up with at the time. <br>
 
 
 
